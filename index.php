@@ -17,6 +17,12 @@ Hey! This is still in beta, which means LOTS of exciting new features are being 
 Got a feature request? I'd love to hear it! I'm on <a href='https://twitter.com/programmerhat'>Twitter @programmerhat</a>. I will occasionally do product decisions via polling on Twitter! You can also send an email to <a href='mailto:hello@programmerhat.com'>hello@programmerhat.com</a>.
 </p>
 
+<p>
+  This is OPEN SOURCED! You can check it out on <a href='https://github.com/programmerhat/vim-online-editor'>Github: programmerhat/vim-online-editor</a>
+</p>
+
+<p>NOTE that this is downloading 2 MB, so give it a second for it to fully download.</p>
+
 <meta charset="utf-8">
 <meta http-equiv="origin-trial" content="AphUM/Qt5R/jf2M2dWkL/9U8kgJr6a9UcC9gJyF3YQbyw0aDz713tceDbpxlBlIHYiF/jOMywy0Tft4/lWlv2QkAAAB9eyJvcmlnaW4iOiJodHRwczovL3ZpbW9ubGluZWVkaXRvci5jb206NDQzIiwiZmVhdHVyZSI6IlVucmVzdHJpY3RlZFNoYXJlZEFycmF5QnVmZmVyIiwiZXhwaXJ5IjoxNjg4MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=">
 <!-- <link rel="icon" type="image/png" sizes="32x32" href="./images/vim&#45;wasm&#45;logo&#45;32x32.png"> -->
@@ -24,6 +30,16 @@ Got a feature request? I'd love to hear it! I'm on <a href='https://twitter.com/
 <link rel="stylesheet" href="style.css" />
 
 <div class="row">
+
+  <form action="https://www.paypal.com/donate" method="post" target="_top" style="display: inline-block;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+      height: 25px;">
+    <input type="hidden" name="hosted_button_id" value="GTJPQJL6QU764" />
+    <input type="image" src="img/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+  </form>
+
   <button id='pastebtn' onclick='paste(event)'>Paste</button>
   <button onclick='loadvimrc(event)'>Load vimrc</button>
   <input id="vim-input" autocomplete="off" />
@@ -39,7 +55,8 @@ We used github.com/rhysd/vim.wasm as a starting point. However there were a lot 
 
 <ul>
   <!-- <li></li> -->
-  <li>TODO: different starting screen</li>
+  <li>Rename vim.data.bmp to fs.txt, because bmp files were not getting compressed by the web server for some reason.</li>
+  <li>different starting screen</li>
   <li>make vim's starting directory $HOME instead of `/`</li>
   <li>Make NEW files persist between edit sessions</li>
   <li>Make "tryit.js" persist between edit sessions</li>
@@ -58,12 +75,14 @@ a lot more features to make this as good as the vim you're used to. This is our 
 </p>
 
 <ul>
+  <!-- <li></li> -->
+  <li>TODO: Implement loading of vim sessions from a persistent file.</li>
+  <li>TODO: Implement support for a plugin such as Vundle.</li>
   <li>TODO: mouse support</li>
   <li>TODO: vim command history (`:e ~/.vim` and uparrow should go up history)</li>
   <li>TODO: vim account management. Be able to open source code from anywhere in the world. Use vimrc across machines/browsers</li>
   <li>TODO: allow creation of new directories.</li>
   <li>TODO: When user loads a file not in filesystem, then load NEW files from IndexedDB. This is VERY technically challenging. Requires a sleep in the main thread to make IndexedDB call look synchronous.</li>
-  <li>TODO: Different vim starting screen.</li>
   <li>TODO: Make paste work in Vim's command line mode `:`</li>
   <li>TODO: check what is the string limit on Web Worker name, which impacts how large the filesytem can be.</li>
 </ul>
@@ -130,13 +149,13 @@ a lot more features to make this as good as the vim you're used to. This is our 
 </p>
 
 <p>
-  What we'd LOVE to hear from you are FEATURE REQUESTS! We know there's a lot of work needed to make this as good as the Vim you're used to in the terminal. So send an email to <a href='mailto:hello@programmerhat.com'>hello@programmerhat.com</a>
+  What we'd LOVE to hear from you are FEATURE REQUESTS! We know there's a lot of work needed to make this as good as the Vim you're used to in the terminal. So interact with me on <a href='https://twitter.com/programmerhat'>Twitter @programmerhat</a> or send an email to <a href='mailto:hello@programmerhat.com'>hello@programmerhat.com</a>
 </p>
 
 <h2>How to use Vim Online Editor?</h2>
 
 <p>
-  If you've got your own vimrc, you'll probably want to install that straight away. Go to "Upload vimrc" so that you get all the keybindings you're used to.
+  If you've got your own vimrc, you'll probably want to install that straight away. Click on "Load vimrc", then copy your vimrc, and click "Paste" to install your vimrc. Do ":write" and reload the tab. The vimrc will be installed.
 </p>
 
 <p>
@@ -156,7 +175,8 @@ a lot more features to make this as good as the vim you're used to. This is our 
 <ol>
   <li>Because you love vim.</li>
   <li>Because you don't have access to vim somehow (maybe you're on a Chromebook that doesn't allow access to the system)</li>
-  <li>Because you want an notepad of some sort in the browser, and you want to use vim bindings instead of normal notepad.</li>
+  <li>Especially if you're on Windows and you still want to use vim.</li>
+  <li>Because you want a notepad of some sort in the browser, and you want to use vim bindings instead of normal notepad.</li>
 <ol>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
@@ -211,7 +231,13 @@ function enter() {
 }
 function focus() { getinput().focus(); }
 
+var isFirefox = (navigator.userAgent.indexOf('Firefox') !== -1);
+
 function paste(e) {
+  if (isFirefox) {
+    alert('Firefox does not allow web apps to read clipboard.');
+    return;
+  }
   console.log('event:', e);
   focuseditor();
   esc();
@@ -247,28 +273,28 @@ function focuseditor() {
 </script>
 <!-- End Google Analytics -->
 
-<!-- <!&#45;&#45; FullStory &#45;&#45;> -->
-<!-- <script> -->
-<!-- window['_fs_host'] = 'fullstory.com'; -->
-<!-- window['_fs_script'] = 'edge.fullstory.com/s/fs.js'; -->
-<!-- window['_fs_org'] = 'o&#45;1G2MW3&#45;na1'; -->
-<!-- window['_fs_namespace'] = 'FS'; -->
-<!-- (function(m,n,e,t,l,o,g,y){ -->
-<!--     if (e in m) {if(m.console &#38;&#38; m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;} -->
-<!--     g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[]; -->
-<!--     o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_script; -->
-<!--     y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y); -->
-<!--     g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)}; -->
-<!--     g.anonymize=function(){g.identify(!!0)}; -->
-<!--     g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)}; -->
-<!--     g.log = function(a,b){g("log",[a,b])}; -->
-<!--     g.consent=function(a){g("consent",!arguments.length||a)}; -->
-<!--     g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)}; -->
-<!--     g.clearUserCookie=function(){}; -->
-<!--     g.setVars=function(n, p){g('setVars',[n,p]);}; -->
-<!--     g._w={};y='XMLHttpRequest';g._w[y]=m[y];y='fetch';g._w[y]=m[y]; -->
-<!--     if(m[y])m[y]=function(){return g._w[y].apply(this,arguments)}; -->
-<!--     g._v="1.3.0"; -->
-<!-- })(window,document,window['_fs_namespace'],'script','user'); -->
-<!-- </script> -->
-<!-- <!&#45;&#45; End Google Analytics &#45;&#45;> -->
+<!-- FullStory -->
+<script>
+window['_fs_host'] = 'fullstory.com';
+window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
+window['_fs_org'] = 'o-1G2MW3-na1';
+window['_fs_namespace'] = 'FS';
+(function(m,n,e,t,l,o,g,y){
+    if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
+    g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
+    o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_script;
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
+    g.anonymize=function(){g.identify(!!0)};
+    g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
+    g.log = function(a,b){g("log",[a,b])};
+    g.consent=function(a){g("consent",!arguments.length||a)};
+    g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+    g.clearUserCookie=function(){};
+    g.setVars=function(n, p){g('setVars',[n,p]);};
+    g._w={};y='XMLHttpRequest';g._w[y]=m[y];y='fetch';g._w[y]=m[y];
+    if(m[y])m[y]=function(){return g._w[y].apply(this,arguments)};
+    g._v="1.3.0";
+})(window,document,window['_fs_namespace'],'script','user');
+</script>
+<!-- End Google Analytics -->
