@@ -10,15 +10,11 @@ header('Cross-Origin-Embedder-Policy: require-corp');
 <h1>Vim Online Editor (beta)</h1>
 
 <p>
-Hey! This is still in beta, which means LOTS of exciting new features are being developed! And yes, it will be open sourced!
+Hey! This is still in beta, which means LOTS of exciting new features are being developed! And yes, it's OPEN SOURCED! You can check it out on <a href='https://github.com/programmerhat/vim-online-editor'>Github: programmerhat/vim-online-editor</a>
 </p>
 
 <p>
 Got a feature request? I'd love to hear it! I'm on <a href='https://twitter.com/programmerhat'>Twitter @programmerhat</a>. I will occasionally do product decisions via polling on Twitter! You can also send an email to <a href='mailto:hello@programmerhat.com'>hello@programmerhat.com</a>.
-</p>
-
-<p>
-  This is OPEN SOURCED! You can check it out on <a href='https://github.com/programmerhat/vim-online-editor'>Github: programmerhat/vim-online-editor</a>
 </p>
 
 <p>NOTE that this is downloading 2 MB, so give it a second for it to fully download.</p>
@@ -76,13 +72,15 @@ a lot more features to make this as good as the vim you're used to. This is our 
 
 <ul>
   <!-- <li></li> -->
+  <li>TODO: "Upload file" button</li>
+  <li>TODO: Able to directly edit the filesystem.</li>
   <li>TODO: Implement loading of vim sessions from a persistent file.</li>
   <li>TODO: Implement support for a plugin such as Vundle.</li>
   <li>TODO: mouse support</li>
   <li>TODO: vim command history (`:e ~/.vim` and uparrow should go up history)</li>
   <li>TODO: vim account management. Be able to open source code from anywhere in the world. Use vimrc across machines/browsers</li>
   <li>TODO: allow creation of new directories.</li>
-  <li>TODO: When user loads a file not in filesystem, then load NEW files from IndexedDB. This is VERY technically challenging. Requires a sleep in the main thread to make IndexedDB call look synchronous.</li>
+  <li>TODO: When user loads a file not in filesystem, then load NEW files from IndexedDB. This is VERY technically challenging. Requires a sleep in the Web Worker to make IndexedDB call look synchronous.</li>
   <li>TODO: Make paste work in Vim's command line mode `:`</li>
   <li>TODO: check what is the string limit on Web Worker name, which impacts how large the filesytem can be.</li>
 </ul>
