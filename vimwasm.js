@@ -699,6 +699,7 @@ export class VimWasm {
             }
             case "title":
                 if (this.onTitleUpdate) {
+                    return; // Don't update title. screws up SEO. TODO: look at whether to re-enable.
                     debug("title was updated:", msg.title);
                     this.onTitleUpdate(msg.title)
                 }
