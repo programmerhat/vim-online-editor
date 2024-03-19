@@ -45,117 +45,11 @@ Got a feature request? I'd love to hear it! I'm on <a href='https://twitter.com/
   <canvas id="vim-screen"></canvas>
 </div>
 
-<h2>Changelog</h2>
-
-We used github.com/rhysd/vim.wasm as a starting point. However there were a lot of missing stuff. This is a changelog of stuff we added.
-
-<ul>
-  <!-- <li></li> -->
-  <li>Rename vim.data.bmp to fs.txt, because bmp files were not getting compressed by the web server for some reason.</li>
-  <li>different starting screen</li>
-  <li>make vim's starting directory $HOME instead of `/`</li>
-  <li>Make NEW files persist between edit sessions</li>
-  <li>Make "tryit.js" persist between edit sessions</li>
-  <li>Make vimrc persist on WRITE and not on vim quit</li>
-  <li>Focus the editor properly to top of canvas instead of top of webpage when the canvas is clicked on.</li>
-  <li>Make vim canvas fill up as much of the screen as possible</li>
-  <li>One button click "Load vimrc" to configure vimrc. This was a dealbreaker for me to personally use vim online</li>
-  <li>One button click to paste into vim. Make it super easy to paste a custom vimrc in</li>
-</ul>
+<?php require_once "index/ChangeLog.html"; ?>
 
 <?php require_once "index/TODOs.html"; ?>
 
-<h2>What is the Vim Online Editor?</h2>
-
-<p>
-  This is "Vim Online", a vim editor in browser. It's a online vim editor that allows you can install your vimrc, and this app will remember your vimrc between visits to a vim editor online.
-</p>
-
-<p>
-  The Online Vim Editor is building off groundbreaking efforts by @rhysd and @coolwanglu to bring vim to the browser.
-</p>
-
-<p>
-  While those projects did a great job getting started on an online vim editor, there are still many missing pieces. The most important missing feature in my opinion is being able to install a vimrc to your vim editor online get back all the keybindings you're used to.
-</p>
-
-<p>
-  Another really important missing feature of a vim editor online is being able to save files easily and navigate between files easily.
-</p>
-
-<p>
-  Another really important feature of a vim editor online is being able to git clone a repo into the browser.
-</p>
-
-<p>
-  What would really be cool is being able to edit files from the filesystem, using the WASI API.
-</p>
-
-<p>
-  Even if direct access to the filesystem isn't possible, an autosync with the source code so that you could easily test the code would be super cool.
-</p>
-
-<h2>What is the vision for the Vim Editor Online?</h2>
-
-<p> I'm thinking this is going to take inspiration from these projects: </p>
-
-<ul>
-  <li>gvim</li>
-  <li>online notepad</li>
-</ul>
-
-<p>
-  This project is going to use vim.wasm as a starting point because that project actually supports clipboard.
-</p>
-
-<p>
-  Unfortunately, the vim.wasm project by rhysd appears not to have had any serious progress for several years. Not since Sep 18, 2021. I last checked Dec 16, 2022.
-</p>
-
-<h2>Who made the Vim Online Editor?</h2>
-
-<p>
-  "Vim Online" was built by the lovely folks at <a href="https://www.programmerhat.com">programmerhat.com</a>.
-</p>
-
-<p>
-  We happen to be huge Vim enthusiasts ourselves. Using Vim for many years. It's the best editor in the world.
-</p>
-
-<p>
-  And of course we're software engineers! We like building software.
-</p>
-
-<p>
-  What we'd LOVE to hear from you are FEATURE REQUESTS! We know there's a lot of work needed to make this as good as the Vim you're used to in the terminal. So interact with me on <a href='https://twitter.com/programmerhat'>Twitter @programmerhat</a> or send an email to <a href='mailto:hello@programmerhat.com'>hello@programmerhat.com</a>
-</p>
-
-<h2>How to use Vim Online Editor?</h2>
-
-<p>
-  If you've got your own vimrc, you'll probably want to install that straight away. Click on "Load vimrc", then copy your vimrc, and click "Paste" to install your vimrc. Do ":write" and reload the tab. The vimrc will be installed.
-</p>
-
-<p>
-  Caveat is that this app currently does not support plugins.
-</p>
-
-<p>
-  Then just click the vim box and you're good to go!
-</p>
-
-<p>
-  It's free. Doesn't cost anything. There will be some ads to help fund feature development. There are a lot of features I want to build.
-</p>
-
-<h2>Why use Vim Online Editor?</h2>
-
-<ol>
-  <li>Because you love vim.</li>
-  <li>Because you don't have access to vim somehow (maybe you're on a Chromebook that doesn't allow access to the system)</li>
-  <li>Especially if you're on Windows and you still want to use vim.</li>
-  <li>Because you want a notepad of some sort in the browser, and you want to use vim bindings instead of normal notepad.</li>
-<ol>
+<?php require_once "index/About.html"; ?>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 <script type="module" src="vimwasm.js" async></script>
