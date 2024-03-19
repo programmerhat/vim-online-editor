@@ -1,0 +1,17 @@
+<h2>Changelog</h2>
+
+We used github.com/rhysd/vim.wasm as a starting point. However there were a lot of missing stuff. This is a changelog of stuff we added.
+
+<ul>
+  <!-- <li></li> -->
+  <li>Rename vim.data.bmp to fs.txt, because bmp files were not getting compressed by the web server for some reason.</li>
+  <li>different starting screen</li>
+  <li>make vim's starting directory $HOME instead of `/`</li>
+  <li>Make NEW files persist between edit sessions</li>
+  <li>Make "tryit.js" persist between edit sessions</li>
+  <li>Make vimrc persist on WRITE and not on vim quit</li>
+  <li>Focus the editor properly to top of canvas instead of top of webpage when the canvas is clicked on.</li>
+  <li>Make vim canvas fill up as much of the screen as possible</li>
+  <li>One button click "Load vimrc" to configure vimrc. This was a dealbreaker for me to personally use vim online</li>
+  <li>One button click to paste into vim. Make it super easy to paste a custom vimrc in</li>
+</ul>
