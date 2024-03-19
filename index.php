@@ -6,19 +6,20 @@ header('Cross-Origin-Embedder-Policy: require-corp');
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vim Online Editor - Vim Editor In Browser</title>
+<header>
 
-<h1>Vim Online Editor (beta)</h1>
+    <h1>Vim Online Editor (beta)</h1>
 
-<p>
-Hey! This is still in beta, which means LOTS of exciting new features are being developed! And yes, it's OPEN SOURCED! You can check it out on <a href='https://github.com/programmerhat/vim-online-editor'>Github: programmerhat/vim-online-editor</a>
-</p>
+    <p>
+    Hey! This is still in beta, which means LOTS of exciting new features are being developed! And yes, it's OPEN SOURCED! You can check it out on <a href='https://github.com/programmerhat/vim-online-editor'>Github: programmerhat/vim-online-editor</a>
+    </p>
 
-<p>
-Got a feature request? I'd love to hear it! I'm on <a href='https://twitter.com/programmerhat'>Twitter @programmerhat</a>. I will occasionally do product decisions via polling on Twitter! You can also send an email to <a href='mailto:hello@programmerhat.com'>hello@programmerhat.com</a>.
-</p>
+    <p>
+    Got a feature request? I'd love to hear it! I'm on <a href='https://twitter.com/programmerhat'>Twitter @programmerhat</a>. I will occasionally do product decisions via polling on Twitter! You can also send an email to <a href='mailto:hello@programmerhat.com'>hello@programmerhat.com</a>.
+    </p>
 
-<p>NOTE that this is downloading 2 MB, so give it a second for it to fully download.</p>
-
+    <p>NOTE that this is downloading 2 MB, so give it a second for it to fully download.</p>
+</header>
 <meta charset="utf-8">
 <meta http-equiv="origin-trial" content="AphUM/Qt5R/jf2M2dWkL/9U8kgJr6a9UcC9gJyF3YQbyw0aDz713tceDbpxlBlIHYiF/jOMywy0Tft4/lWlv2QkAAAB9eyJvcmlnaW4iOiJodHRwczovL3ZpbW9ubGluZWVkaXRvci5jb206NDQzIiwiZmVhdHVyZSI6IlVucmVzdHJpY3RlZFNoYXJlZEFycmF5QnVmZmVyIiwiZXhwaXJ5IjoxNjg4MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=">
 <!-- <link rel="icon" type="image/png" sizes="32x32" href="./images/vim&#45;wasm&#45;logo&#45;32x32.png"> -->
