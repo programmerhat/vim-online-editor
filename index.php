@@ -24,7 +24,7 @@ header('Cross-Origin-Embedder-Policy: require-corp');
 <meta http-equiv="origin-trial" content="AphUM/Qt5R/jf2M2dWkL/9U8kgJr6a9UcC9gJyF3YQbyw0aDz713tceDbpxlBlIHYiF/jOMywy0Tft4/lWlv2QkAAAB9eyJvcmlnaW4iOiJodHRwczovL3ZpbW9ubGluZWVkaXRvci5jb206NDQzIiwiZmVhdHVyZSI6IlVucmVzdHJpY3RlZFNoYXJlZEFycmF5QnVmZmVyIiwiZXhwaXJ5IjoxNjg4MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=">
 <!-- <link rel="icon" type="image/png" sizes="32x32" href="./images/vim&#45;wasm&#45;logo&#45;32x32.png"> -->
 <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/vim&#45;wasm&#45;logo&#45;16x16.png"> -->
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="styles/style.css" />
 
 <div class="row">
 
@@ -53,8 +53,8 @@ header('Cross-Origin-Embedder-Policy: require-corp');
 <?php require_once "index/About.html"; ?>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-<script type="module" src="vimwasm.js" async></script>
-<script type="module" src="main.js"></script>
+<script type="module" src="JavaScript/vimwasm.js" async></script>
+<script type="module" src="JavaScript/main.js"></script>
 
 <script>
 
