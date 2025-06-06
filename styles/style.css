@@ -47,3 +47,24 @@ body {
   position: fixed;
   display: none; /* TODO */
 }
+
+body.theme-fedora {
+  background-color: #000;
+}
+body.theme-fedora #vim-editor {
+  border: 10px solid #3c6eb4;
+}
+
+body.theme-macos {
+  background-color: #1e1e1e;
+}
+body.theme-macos #vim-editor {
+  border: 10px solid #4d4d4d;
+}
+
+body.theme-ubuntu {
+  background-color: #300a24;
+}
+body.theme-ubuntu #vim-editor {
+  border: 10px solid #dd4814;
+}
