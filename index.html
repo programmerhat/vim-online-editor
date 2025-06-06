@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+    <title>Vim Tutor LoFi</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body class="theme-fedora">
+    <div id="vim-editor">
+      <div class="titlebar"></div>
+      <canvas id="vim-screen"></canvas>
+    </div>
+    <input id="vim-input" autocomplete="off" />
+    <script type="module" src="JavaScript/vimwasm.js" async></script>
+    <script type="module" src="JavaScript/main.js"></script>
+    <script src="JavaScript/theme.js"></script>
+  </body>
+</html>

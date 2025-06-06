@@ -10,12 +10,19 @@ body {
 }
 
 #vim-editor {
+  position: relative;
   display: flex;
+  flex-direction: column;
   padding: 2px;
   margin: 0px;
   width: calc(100vw - 50px);
   height: calc(100vh - 50px);
-  background-color: #282c33;
+  background-color: #000;
+}
+
+.titlebar {
+  height: 24px;
+  flex-shrink: 0;
 }
 
 #vim-screen {
@@ -46,4 +53,53 @@ body {
   visibility: hidden;
   position: fixed;
   display: none; /* TODO */
+}
+
+body.theme-fedora {
+  background-color: #0c0c0c;
+  font-family: "DejaVu Sans Mono", monospace;
+}
+body.theme-fedora #vim-editor {
+  border: 8px solid #3c6eb4;
+  box-shadow: 0 0 10px rgba(60, 110, 180, 0.8);
+}
+body.theme-fedora .titlebar {
+  background-color: #3c6eb4;
+}
+
+body.theme-macos {
+  background-color: #1e1e1e;
+  font-family: "Menlo", monospace;
+}
+body.theme-macos #vim-editor {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+body.theme-macos .titlebar {
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+body.theme-macos .titlebar::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff6059;
+  box-shadow: 12px 0 0 #ffbd2e, 24px 0 0 #28c941;
+}
+
+body.theme-ubuntu {
+  background-color: #300a24;
+  font-family: "Ubuntu Mono", monospace;
+}
+body.theme-ubuntu #vim-editor {
+  border: 8px solid #dd4814;
+  box-shadow: 0 0 10px rgba(221, 72, 20, 0.6);
+}
+body.theme-ubuntu .titlebar {
+  background-color: #77216f;
 }
